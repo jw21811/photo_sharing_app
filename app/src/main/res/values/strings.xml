@@ -8,5 +8,6 @@
     <string name="appSecrect">15296845d2a7d0ee7428e977b4a2d97c7811a</string>
     <string name="apiTimesError">5311错误，接口不可用</string>
     <string name="apiParamError">5314错误，api传参错误</string>
+    <string name="loginSuccess">登录成功</string>
 
 </resources>

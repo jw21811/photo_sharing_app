@@ -1,9 +1,10 @@
-package com.example.bottomnavigationdemo.Login;
+package com.example.bottomnavigationdemo;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bottomnavigationdemo.MainActivity;
 import com.example.bottomnavigationdemo.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -48,7 +50,7 @@ public class LoginActivity extends AppCompatActivity
 
     private final Gson gson = new Gson();
     ResponseBody<Object> dataResponseBody = null;
-    ResposeData<Object> dataResposeData = null;
+    ResposeData dataResposeData = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,7 +112,7 @@ public class LoginActivity extends AppCompatActivity
             return;
         }
         Thread.sleep(500);
-        if(dataResponseBody == null)
+        if(dataResponseBody == null || dataResposeData == null)
         {
             Toast.makeText(LoginActivity.this,getResources().getString(R.string.apiErrorTimeout),Toast.LENGTH_SHORT).show();
             return;
@@ -122,7 +124,15 @@ public class LoginActivity extends AppCompatActivity
             case 5217: Toast.makeText(LoginActivity.this,getResources().getString(R.string.permissionError),Toast.LENGTH_SHORT).show();break;
             case 5311: Toast.makeText(LoginActivity.this,getResources().getString(R.string.apiTimesError),Toast.LENGTH_SHORT).show();break;
             case 5314: Toast.makeText(LoginActivity.this,getResources().getString(R.string.apiParamError),Toast.LENGTH_SHORT).show();break;
-
+            case 200: Toast.makeText(LoginActivity.this,getResources().getString(R.string.loginSuccess),Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent();
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setClass(LoginActivity.this,MainActivity.class);
+                intent.putExtra("userId",dataResposeData.id);
+                intent.putExtra("username",dataResposeData.username);
+                startActivity(intent);
+                Log.d("Intent", "Starting MainActivity with userId: " + dataResposeData.id);
+                break;
         }
 
 
@@ -134,7 +144,7 @@ public class LoginActivity extends AppCompatActivity
         new Thread(() -> {
 
             // url路径
-            String url = "http://47.107.52.7:8/member/photo/user/login?password=" + password + "&username=" + account;
+            String url = "http://47.107.52.7:88/member/photo/user/login?password=" + password + "&username=" + account;
 
             // 请求头
             Headers headers = new Headers.Builder()
@@ -189,17 +199,13 @@ public class LoginActivity extends AppCompatActivity
             {
                 return;
             }
-            jsonType = new TypeToken<ResposeData<Object>>(){}.getType();
+            jsonType = new TypeToken<ResposeData>(){}.getType();
             dataResposeData = gson.fromJson(dataResponseBody.getData().toString(), jsonType);
             Log.d("MyInfo",dataResposeData.toString());
         }
     };
 
-    /**
-     * http响应体的封装协议
-     *
-     * @param <T> 泛型
-     */
+
     public static class ResponseBody<T> {
 
         /**
@@ -241,7 +247,7 @@ public class LoginActivity extends AppCompatActivity
         }
     }
 
-    private static class ResposeData<T> {
+    private static class ResposeData {
         public String appKey;
         public String avatar;
         public long createTime;
