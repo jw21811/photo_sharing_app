@@ -1,0 +1,12 @@
+<resources>
+    //记录app名称
+    <string name="app_name">Bottom Navigation Demo</string>
+    <string name="title_home">home</string>
+    <string name="title_info">info</string>
+    <string name="title_test">test</string>
+    <string name="appId">c27ff93427f043dd9bbf979d620638e0</string>
+    <string name="appSecrect">15296845d2a7d0ee7428e977b4a2d97c7811a</string>
+    <string name="apiTimesError">5311错误，接口不可用</string>
+    <string name="apiParamError">5314错误，api传参错误</string>
+
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="emptyAccountOrPassword">"账号或密码不能为空"</string>
+    <string name="errorAccountOrPassword">"账号或密码错误"</string>
+    <string name="resourceUnauthorized">401错误，资源未授权</string>
+    <string name="resourceUnfound">404错误，无法找到资源</string>
+    <string name="permissionError">5217错误，服务密钥错误</string>
+    <string name="apiErrorTimeout">连接超时</string>
+</resources>

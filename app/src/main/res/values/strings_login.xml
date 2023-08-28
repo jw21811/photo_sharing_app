@@ -1,0 +1,16 @@
+<resources>
+
+    //在账号栏显示的文本
+    <string name="InputAccount">Email/Account</string>
+    //在登录按钮显示的文本
+    <string name="login">login</string>
+    //记录shared-pref文件的名称
+    <string name="shared_perferince_file_name">sp_login</string>
+
+    //保存登陆状态的键值对的key，用这个来访问账号和密码
+    <string name="login_account_name">login_account_name</string>
+    <string name="login_password">login_password</string>
+    <string name="login_remenber_password">login_remember_password</string>
+
+
+</resources>
