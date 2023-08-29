@@ -4,12 +4,16 @@
         android:id="@+id/navigation_home"
         android:icon="@drawable/baseline_home_24">
     </item>
+    <item android:title="@string/title_focus"
+        android:id="@+id/navigation_focus"
+        android:icon="@drawable/my_focus">
+    </item>
     <item android:title="@string/title_info"
-        android:id="@+id/navigation_info"
-        android:icon="@drawable/baseline_info_24">
+        android:id="@+id/navigation_share"
+        android:icon="@drawable/newshare">
     </item>
     <item android:title="@string/title_test"
-        android:id="@+id/navigation_test"
-        android:icon="@drawable/baseline_handyman_24">
+        android:id="@+id/navigation_me"
+        android:icon="@drawable/me">
     </item>
 </menu>
