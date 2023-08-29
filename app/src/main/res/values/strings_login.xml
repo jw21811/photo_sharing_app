@@ -1,9 +1,9 @@
 <resources>
 
     //在账号栏显示的文本
-    <string name="InputAccount">Email/Account</string>
+    <string name="InputAccount">用户名</string>
     //在登录按钮显示的文本
-    <string name="login">login</string>
+    <string name="login">登录</string>
     //记录shared-pref文件的名称
     <string name="shared_perferince_file_name">sp_login</string>
 

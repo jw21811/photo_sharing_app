@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    //此处保存警告或错误信息
     <string name="emptyAccountOrPassword">"账号或密码不能为空"</string>
     <string name="errorAccountOrPassword">"账号或密码错误"</string>
     <string name="resourceUnauthorized">401错误，资源未授权</string>
     <string name="resourceUnfound">404错误，无法找到资源</string>
     <string name="permissionError">5217错误，服务密钥错误</string>
     <string name="apiErrorTimeout">连接超时</string>
+    <string name="apiTimesError">5311错误，接口不可用</string>
+    <string name="apiParamError">5314错误，api传参错误</string>
+    <string name="unmatchPassword">两次输入的密码不一致</string>
 </resources>

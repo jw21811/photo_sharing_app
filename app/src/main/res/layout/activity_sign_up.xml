@@ -4,12 +4,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
+    tools:context=".SignUpActivity"
     android:orientation="vertical">
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/img_login_item_card"
+        android:id="@+id/img_signUp_item_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -23,7 +23,7 @@
             android:layout_height="246dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:src="@mipmap/img_login" />
+            android:src="@mipmap/img_sign_up" />
     </androidx.cardview.widget.CardView>
 
     <RelativeLayout
@@ -43,7 +43,7 @@
 
         <!--账号输入文本框-->
         <EditText
-            android:id="@+id/et_login_account"
+            android:id="@+id/et_signUp_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
@@ -72,18 +72,48 @@
 
         <!--密码输入文本框-->
         <EditText
-            android:id="@+id/et_login_pwd"
+            android:id="@+id/et_signUp_pwd"
             android:layout_width="315dp"
             android:layout_height="match_parent"
             android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
             android:layout_marginBottom="4dp"
             android:hint="@string/InputPassword"
             android:inputType="textPassword"
             android:maxLines="1" />
 
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp">
+
+        <!--输入密码处的图标-->
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/baseline_lock_open_24" />
+
+        <EditText
+            android:id="@+id/et_signUp_pwd_again"
+            android:layout_width="315dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="4dp"
+            android:hint="@string/InputPasswordAgain"
+            android:inputType="textPassword"
+            android:maxLines="1" />
         <!--切换密码可见性按钮-->
         <ImageView
-            android:id="@+id/iv_login_pwd_switch"
+            android:id="@+id/iv_signUp_pwd_switch_again"
             android:layout_width="wrap_content"
             android:layout_height="37dp"
             android:layout_alignParentEnd="true"
@@ -93,53 +123,29 @@
             android:layout_marginBottom="7dp"
             android:src="@drawable/baseline_visibility_off_24" />
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp">
-
-        <!--保存密码复选框-->
-        <CheckBox
-            android:id="@+id/cb_login_remember_pwd"
+        <!--切换密码可见性按钮-->
+        <ImageView
+            android:id="@+id/iv_login_pwd_switch_again"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentStart="true"
+            android:layout_height="37dp"
+            android:layout_alignParentEnd="true"
+
             android:layout_alignParentBottom="true"
-            android:layout_marginLeft="8dp"
-            android:layout_marginBottom="0dp"
-            android:text="@string/rememberPassword"
-            android:textColor="@color/blue" />
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="7dp"
+            android:src="@drawable/baseline_visibility_off_24" />
 
-        <!--注册处文本-->
-        <TextView
-            android:id="@+id/tv_login_sign_up"
-            android:text="@string/signUP"
-            android:textColor="@color/blue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/cb_login_remember_pwd"
-            android:layout_marginEnd="8dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true" />
+
+
     </RelativeLayout>
 
-
-    <RelativeLayout
+    <Button
+        android:id="@+id/btn_signUp_signUp"
         android:layout_width="match_parent"
-        android:layout_height="81dp"
-        android:layout_marginTop="0dp">
-
-        <Button
-            android:id="@+id/btn_login_login"
-            android:background="@drawable/button_selector"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="1dp"
-            android:text="@string/login" />
-    </RelativeLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/button_selector"
+        android:text="@string/signUp" />
 
 </LinearLayout>

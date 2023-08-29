@@ -20,8 +20,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.bottomnavigationdemo.MainActivity;
-import com.example.bottomnavigationdemo.R;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -56,12 +54,12 @@ public class LoginActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final ImageView ivPwdSwitch = findViewById(R.id.iv_pwd_switch);
-        etPwd = findViewById(R.id.et_pwd);
-        etAccount = findViewById(R.id.et_account);
-        cbRememberPwd = findViewById(R.id.cb_remember_pwd);
-        btLogin = findViewById(R.id.btn_login);
-        tvSignUp = findViewById(R.id.tv_sign_up);
+        final ImageView ivPwdSwitch = findViewById(R.id.iv_login_pwd_switch);
+        etPwd = findViewById(R.id.et_login_pwd);
+        etAccount = findViewById(R.id.et_login_account);
+        cbRememberPwd = findViewById(R.id.cb_login_remember_pwd);
+        btLogin = findViewById(R.id.btn_login_login);
+        tvSignUp = findViewById(R.id.tv_login_sign_up);
         btLogin.setOnClickListener(this);
         tvSignUp.setOnClickListener(this);
 
@@ -94,7 +92,8 @@ public class LoginActivity extends AppCompatActivity
                 throw new RuntimeException(e);
             }
         } else if (id == tvSignUp.getId()) {
-            Toast.makeText(LoginActivity.this, "Sign Up", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LoginActivity.this,SignUpActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -180,13 +179,11 @@ public class LoginActivity extends AppCompatActivity
     private final Callback callback = new Callback() {
         @Override
         public void onFailure(@NonNull Call call, IOException e) {
-            //TODO 请求失败处理
             e.printStackTrace();
         }
 
         @Override
         public void onResponse(@NonNull Call call, Response response) throws IOException {
-            //TODO 请求成功处理
             Type jsonType = new TypeToken<ResponseBody<Object>>() {
             }.getType();
             // 获取响应体的json串
